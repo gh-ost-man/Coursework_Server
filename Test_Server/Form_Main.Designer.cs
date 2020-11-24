@@ -35,6 +35,8 @@
             this.btn_Users_Show = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.panel_Groups_SubMenu = new System.Windows.Forms.Panel();
+            this.btn_GroupShowUsers = new System.Windows.Forms.Button();
+            this.btn_GroupAddUser = new System.Windows.Forms.Button();
             this.btn_Groups_Update = new System.Windows.Forms.Button();
             this.btn_Groups_Add = new System.Windows.Forms.Button();
             this.btn_Groups_Show = new System.Windows.Forms.Button();
@@ -44,8 +46,6 @@
             this.panel_Info = new System.Windows.Forms.Panel();
             this.label_UserName = new System.Windows.Forms.Label();
             this.panel_Main = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel_Menu.SuspendLayout();
             this.panel_Users_SubMenu.SuspendLayout();
             this.panel_Groups_SubMenu.SuspendLayout();
@@ -74,9 +74,9 @@
             this.panel_Users_SubMenu.Controls.Add(this.btn_Users_Add);
             this.panel_Users_SubMenu.Controls.Add(this.btn_Users_Show);
             this.panel_Users_SubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_Users_SubMenu.Location = new System.Drawing.Point(0, 294);
+            this.panel_Users_SubMenu.Location = new System.Drawing.Point(0, 288);
             this.panel_Users_SubMenu.Name = "panel_Users_SubMenu";
-            this.panel_Users_SubMenu.Size = new System.Drawing.Size(179, 77);
+            this.panel_Users_SubMenu.Size = new System.Drawing.Size(179, 74);
             this.panel_Users_SubMenu.TabIndex = 6;
             // 
             // btn_Users_Update
@@ -137,7 +137,7 @@
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.Location = new System.Drawing.Point(0, 261);
+            this.button5.Location = new System.Drawing.Point(0, 255);
             this.button5.Name = "button5";
             this.button5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button5.Size = new System.Drawing.Size(179, 33);
@@ -150,16 +150,50 @@
             // panel_Groups_SubMenu
             // 
             this.panel_Groups_SubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(41)))), ((int)(((byte)(48)))));
-            this.panel_Groups_SubMenu.Controls.Add(this.button2);
-            this.panel_Groups_SubMenu.Controls.Add(this.button1);
+            this.panel_Groups_SubMenu.Controls.Add(this.btn_GroupShowUsers);
+            this.panel_Groups_SubMenu.Controls.Add(this.btn_GroupAddUser);
             this.panel_Groups_SubMenu.Controls.Add(this.btn_Groups_Update);
             this.panel_Groups_SubMenu.Controls.Add(this.btn_Groups_Add);
             this.panel_Groups_SubMenu.Controls.Add(this.btn_Groups_Show);
             this.panel_Groups_SubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Groups_SubMenu.Location = new System.Drawing.Point(0, 133);
             this.panel_Groups_SubMenu.Name = "panel_Groups_SubMenu";
-            this.panel_Groups_SubMenu.Size = new System.Drawing.Size(179, 128);
+            this.panel_Groups_SubMenu.Size = new System.Drawing.Size(179, 122);
             this.panel_Groups_SubMenu.TabIndex = 4;
+            // 
+            // btn_GroupShowUsers
+            // 
+            this.btn_GroupShowUsers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(41)))), ((int)(((byte)(48)))));
+            this.btn_GroupShowUsers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_GroupShowUsers.FlatAppearance.BorderSize = 0;
+            this.btn_GroupShowUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_GroupShowUsers.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_GroupShowUsers.Location = new System.Drawing.Point(0, 92);
+            this.btn_GroupShowUsers.Name = "btn_GroupShowUsers";
+            this.btn_GroupShowUsers.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btn_GroupShowUsers.Size = new System.Drawing.Size(179, 23);
+            this.btn_GroupShowUsers.TabIndex = 4;
+            this.btn_GroupShowUsers.Text = "Show Users";
+            this.btn_GroupShowUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_GroupShowUsers.UseVisualStyleBackColor = false;
+            this.btn_GroupShowUsers.Click += new System.EventHandler(this.btn_GroupShowUsers_Click);
+            // 
+            // btn_GroupAddUser
+            // 
+            this.btn_GroupAddUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(41)))), ((int)(((byte)(48)))));
+            this.btn_GroupAddUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_GroupAddUser.FlatAppearance.BorderSize = 0;
+            this.btn_GroupAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_GroupAddUser.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_GroupAddUser.Location = new System.Drawing.Point(0, 69);
+            this.btn_GroupAddUser.Name = "btn_GroupAddUser";
+            this.btn_GroupAddUser.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btn_GroupAddUser.Size = new System.Drawing.Size(179, 23);
+            this.btn_GroupAddUser.TabIndex = 3;
+            this.btn_GroupAddUser.Text = "Add user";
+            this.btn_GroupAddUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_GroupAddUser.UseVisualStyleBackColor = false;
+            this.btn_GroupAddUser.Click += new System.EventHandler(this.btn_GroupAddUser_Click);
             // 
             // btn_Groups_Update
             // 
@@ -279,38 +313,6 @@
             this.panel_Main.Size = new System.Drawing.Size(778, 406);
             this.panel_Main.TabIndex = 2;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(41)))), ((int)(((byte)(48)))));
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(0, 69);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(179, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Add user";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(41)))), ((int)(((byte)(48)))));
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(0, 92);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(179, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Show Users";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,7 +356,7 @@
         private System.Windows.Forms.Panel panel_Server;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel_Main;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_GroupShowUsers;
+        private System.Windows.Forms.Button btn_GroupAddUser;
     }
 }

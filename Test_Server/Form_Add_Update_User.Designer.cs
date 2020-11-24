@@ -30,19 +30,19 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox_FName = new System.Windows.Forms.TextBox();
-            this.textBox_LName = new System.Windows.Forms.TextBox();
-            this.textBox_Login = new System.Windows.Forms.TextBox();
-            this.textBox_Password = new System.Windows.Forms.TextBox();
-            this.label_Confirm = new System.Windows.Forms.Label();
-            this.textBox_Confirm = new System.Windows.Forms.TextBox();
-            this.checkBox_IsAdmin = new System.Windows.Forms.CheckBox();
-            this.btn_OK = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
+            this.btn_OK = new System.Windows.Forms.Button();
+            this.checkBox_IsAdmin = new System.Windows.Forms.CheckBox();
+            this.textBox_Confirm = new System.Windows.Forms.TextBox();
+            this.label_Confirm = new System.Windows.Forms.Label();
+            this.textBox_Password = new System.Windows.Forms.TextBox();
+            this.textBox_Login = new System.Windows.Forms.TextBox();
+            this.textBox_LName = new System.Windows.Forms.TextBox();
+            this.textBox_FName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -79,85 +79,29 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // label1
+            // btn_Cancel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "First Name";
+            this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancel.ForeColor = System.Drawing.Color.White;
+            this.btn_Cancel.Location = new System.Drawing.Point(222, 187);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_Cancel.TabIndex = 13;
+            this.btn_Cancel.Text = "Cancel";
+            this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
-            // label2
+            // btn_OK
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Last Name";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Login";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 101);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Password";
-            // 
-            // textBox_FName
-            // 
-            this.textBox_FName.Location = new System.Drawing.Point(103, 20);
-            this.textBox_FName.Name = "textBox_FName";
-            this.textBox_FName.Size = new System.Drawing.Size(194, 20);
-            this.textBox_FName.TabIndex = 5;
-            // 
-            // textBox_LName
-            // 
-            this.textBox_LName.Location = new System.Drawing.Point(103, 46);
-            this.textBox_LName.Name = "textBox_LName";
-            this.textBox_LName.Size = new System.Drawing.Size(194, 20);
-            this.textBox_LName.TabIndex = 6;
-            // 
-            // textBox_Login
-            // 
-            this.textBox_Login.Location = new System.Drawing.Point(103, 72);
-            this.textBox_Login.Name = "textBox_Login";
-            this.textBox_Login.Size = new System.Drawing.Size(194, 20);
-            this.textBox_Login.TabIndex = 7;
-            // 
-            // textBox_Password
-            // 
-            this.textBox_Password.Location = new System.Drawing.Point(103, 98);
-            this.textBox_Password.Name = "textBox_Password";
-            this.textBox_Password.Size = new System.Drawing.Size(194, 20);
-            this.textBox_Password.TabIndex = 8;
-            // 
-            // label_Confirm
-            // 
-            this.label_Confirm.AutoSize = true;
-            this.label_Confirm.Location = new System.Drawing.Point(7, 127);
-            this.label_Confirm.Name = "label_Confirm";
-            this.label_Confirm.Size = new System.Drawing.Size(90, 13);
-            this.label_Confirm.TabIndex = 9;
-            this.label_Confirm.Text = "Confirm password";
-            // 
-            // textBox_Confirm
-            // 
-            this.textBox_Confirm.Location = new System.Drawing.Point(103, 124);
-            this.textBox_Confirm.Name = "textBox_Confirm";
-            this.textBox_Confirm.Size = new System.Drawing.Size(194, 20);
-            this.textBox_Confirm.TabIndex = 10;
+            this.btn_OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_OK.ForeColor = System.Drawing.Color.White;
+            this.btn_OK.Location = new System.Drawing.Point(103, 187);
+            this.btn_OK.Name = "btn_OK";
+            this.btn_OK.Size = new System.Drawing.Size(75, 23);
+            this.btn_OK.TabIndex = 12;
+            this.btn_OK.Text = "OK";
+            this.btn_OK.UseVisualStyleBackColor = true;
+            this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
             // 
             // checkBox_IsAdmin
             // 
@@ -169,27 +113,85 @@
             this.checkBox_IsAdmin.Text = "Admin";
             this.checkBox_IsAdmin.UseVisualStyleBackColor = true;
             // 
-            // btn_OK
+            // textBox_Confirm
             // 
-            this.btn_OK.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_OK.Location = new System.Drawing.Point(103, 187);
-            this.btn_OK.Name = "btn_OK";
-            this.btn_OK.Size = new System.Drawing.Size(75, 23);
-            this.btn_OK.TabIndex = 12;
-            this.btn_OK.Text = "OK";
-            this.btn_OK.UseVisualStyleBackColor = true;
-            this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
+            this.textBox_Confirm.Location = new System.Drawing.Point(103, 124);
+            this.textBox_Confirm.Name = "textBox_Confirm";
+            this.textBox_Confirm.Size = new System.Drawing.Size(194, 20);
+            this.textBox_Confirm.TabIndex = 10;
             // 
-            // btn_Cancel
+            // label_Confirm
             // 
-            this.btn_Cancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btn_Cancel.Location = new System.Drawing.Point(222, 187);
-            this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(75, 23);
-            this.btn_Cancel.TabIndex = 13;
-            this.btn_Cancel.Text = "Cancel";
-            this.btn_Cancel.UseVisualStyleBackColor = true;
-            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
+            this.label_Confirm.AutoSize = true;
+            this.label_Confirm.Location = new System.Drawing.Point(7, 127);
+            this.label_Confirm.Name = "label_Confirm";
+            this.label_Confirm.Size = new System.Drawing.Size(90, 13);
+            this.label_Confirm.TabIndex = 9;
+            this.label_Confirm.Text = "Confirm password";
+            // 
+            // textBox_Password
+            // 
+            this.textBox_Password.Location = new System.Drawing.Point(103, 98);
+            this.textBox_Password.Name = "textBox_Password";
+            this.textBox_Password.Size = new System.Drawing.Size(194, 20);
+            this.textBox_Password.TabIndex = 8;
+            // 
+            // textBox_Login
+            // 
+            this.textBox_Login.Location = new System.Drawing.Point(103, 72);
+            this.textBox_Login.Name = "textBox_Login";
+            this.textBox_Login.Size = new System.Drawing.Size(194, 20);
+            this.textBox_Login.TabIndex = 7;
+            // 
+            // textBox_LName
+            // 
+            this.textBox_LName.Location = new System.Drawing.Point(103, 46);
+            this.textBox_LName.Name = "textBox_LName";
+            this.textBox_LName.Size = new System.Drawing.Size(194, 20);
+            this.textBox_LName.TabIndex = 6;
+            // 
+            // textBox_FName
+            // 
+            this.textBox_FName.Location = new System.Drawing.Point(103, 20);
+            this.textBox_FName.Name = "textBox_FName";
+            this.textBox_FName.Size = new System.Drawing.Size(194, 20);
+            this.textBox_FName.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 101);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Password";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(33, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Login";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Last Name";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "First Name";
             // 
             // Form_Add_Update_User
             // 

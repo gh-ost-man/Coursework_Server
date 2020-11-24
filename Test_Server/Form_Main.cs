@@ -117,5 +117,15 @@ namespace Test_Server
         {
             openChildForm(new Form_Add_Update_User(TypeOfCRUT.Update));
         }
+
+        private void btn_GroupShowUsers_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Form_GroupUsersShow());
+        }
+
+        private void btn_GroupAddUser_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Form_GroupAddUser());
+        }
     }
 }

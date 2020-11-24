@@ -93,6 +93,18 @@
     <Compile Include="Form_Add_Update_User.Designer.cs">
       <DependentUpon>Form_Add_Update_User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_GroupAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_GroupAddUser.Designer.cs">
+      <DependentUpon>Form_GroupAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_GroupUsersShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_GroupUsersShow.Designer.cs">
+      <DependentUpon>Form_GroupUsersShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Add_Update_User.resx">
       <DependentUpon>Form_Add_Update_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_GroupAddUser.resx">
+      <DependentUpon>Form_GroupAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_GroupUsersShow.resx">
+      <DependentUpon>Form_GroupUsersShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>

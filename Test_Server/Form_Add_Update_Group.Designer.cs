@@ -64,7 +64,8 @@
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Cancel.ForeColor = System.Drawing.Color.White;
             this.btn_Cancel.Location = new System.Drawing.Point(177, 64);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(75, 23);
@@ -75,7 +76,8 @@
             // 
             // btn_OK
             // 
-            this.btn_OK.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btn_OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_OK.ForeColor = System.Drawing.Color.White;
             this.btn_OK.Location = new System.Drawing.Point(60, 64);
             this.btn_OK.Name = "btn_OK";
             this.btn_OK.Size = new System.Drawing.Size(75, 23);
