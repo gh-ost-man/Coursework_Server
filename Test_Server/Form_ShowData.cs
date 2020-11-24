@@ -35,6 +35,7 @@ namespace Test_Server
         {
             if (type == TypeEntity.Groups) GetGroups();
             if (type == TypeEntity.Users) GetUsers();
+            if (type == TypeEntity.Tests) GetTests();
         }
 
         private void GetGroups()
@@ -71,9 +72,25 @@ namespace Test_Server
             dataGridView1.DataSource = users;
         }
 
+        private void GetTests()
+        {
+            IGenericRepository<Test> repTest = work.Repository<Test>();
+
+            var tests = repTest.GetAll().Select(x => new
+            {
+                Id = x.Id,
+                Auhtor = x.Author,
+                Title = x.Title,
+                Time = x.Time
+            }).ToList();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = tests;
+        }
+
         private void btn_Remove_Click(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count == 0) return;
+
 
             if (typeEntity == TypeEntity.Groups)
             {
@@ -108,6 +125,25 @@ namespace Test_Server
                     GetUsers();
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
+
+            if (typeEntity == TypeEntity.Tests)
+            {
+                try
+                {
+                    IGenericRepository<Test> repTest = work.Repository<Test>();
+                    id = (int)dataGridView1.CurrentRow.Cells["Id"].Value;
+
+                    var test = repTest.FindById(id);
+                    test.Questions.Clear();
+                    work.SaveChanges();
+
+                    repTest.Remove(test);
+
+                    GetTests();
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
             }
         }
     }

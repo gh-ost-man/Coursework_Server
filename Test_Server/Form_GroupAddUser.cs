@@ -72,7 +72,7 @@ namespace Test_Server
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            if (dataGridView_Groups.Rows.Count == 0 || dataGridView_Users.Rows.Count == 0) return;
+            if (comboBox1.SelectedItem.ToString()==string.Empty || dataGridView_Users.Rows.Count == 0) return;
 
             try
             {

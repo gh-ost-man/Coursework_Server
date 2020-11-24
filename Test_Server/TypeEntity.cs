@@ -8,6 +8,6 @@ namespace Test_Server
 {
     public enum TypeEntity
     {
-        Default = 0,Groups=1,Users=2
+        Default = 0,Groups=1,Users=2,Tests=3
     }
 }

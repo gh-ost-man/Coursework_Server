@@ -79,7 +79,7 @@
             this.textBox_Login.Name = "textBox_Login";
             this.textBox_Login.Size = new System.Drawing.Size(170, 20);
             this.textBox_Login.TabIndex = 2;
-            this.textBox_Login.Text = "ghost";
+            this.textBox_Login.Text = "admin";
             // 
             // label2
             // 

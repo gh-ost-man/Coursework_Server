@@ -72,6 +72,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TestLib">
+      <HintPath>..\..\..\S.H.I.E.L.D\S.H.I.E.L.D\IT STEP\Програмування\Курсова робота по DotNet\Design\TestLib\bin\Debug\TestLib.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -93,17 +96,29 @@
     <Compile Include="Form_Add_Update_User.Designer.cs">
       <DependentUpon>Form_Add_Update_User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_AsignesTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AsignesTest.Designer.cs">
+      <DependentUpon>Form_AsignesTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_GroupAddUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_GroupAddUser.Designer.cs">
       <DependentUpon>Form_GroupAddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_GroupUsersShow.cs">
+    <Compile Include="Form_GroupShowData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_GroupUsersShow.Designer.cs">
-      <DependentUpon>Form_GroupUsersShow.cs</DependentUpon>
+    <Compile Include="Form_GroupShowData.Designer.cs">
+      <DependentUpon>Form_GroupShowData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_LoadTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_LoadTest.Designer.cs">
+      <DependentUpon>Form_LoadTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Main.cs">
       <SubType>Form</SubType>
@@ -130,11 +145,17 @@
     <EmbeddedResource Include="Form_Add_Update_User.resx">
       <DependentUpon>Form_Add_Update_User.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_AsignesTest.resx">
+      <DependentUpon>Form_AsignesTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_GroupAddUser.resx">
       <DependentUpon>Form_GroupAddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_GroupUsersShow.resx">
-      <DependentUpon>Form_GroupUsersShow.cs</DependentUpon>
+    <EmbeddedResource Include="Form_GroupShowData.resx">
+      <DependentUpon>Form_GroupShowData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_LoadTest.resx">
+      <DependentUpon>Form_LoadTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>

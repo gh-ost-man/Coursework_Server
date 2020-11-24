@@ -38,7 +38,18 @@ namespace Test_Server
 
             User user = rep.FindAll(x => x.Login == textBox_Login.Text && x.Password == textBox_Password.Text).FirstOrDefault();
 
-            if (user != null && user.IsAdmin)
+            if(user==null)
+            {
+                MessageBox.Show("User not found","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+
+            if(!user.IsAdmin)
+            {
+                MessageBox.Show("Access is denied","Access",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            if (user.IsAdmin)
             {
                 Form_Main main = new Form_Main(user);
                 this.Hide();

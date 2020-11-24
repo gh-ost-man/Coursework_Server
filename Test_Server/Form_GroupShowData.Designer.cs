@@ -1,6 +1,6 @@
 ﻿namespace Test_Server
 {
-    partial class Form_GroupUsersShow
+    partial class Form_GroupShowData
     {
         /// <summary>
         /// Required designer variable.
