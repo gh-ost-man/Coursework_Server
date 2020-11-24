@@ -18,13 +18,15 @@ namespace Test_Server
         public Form1()
         {
             InitializeComponent();
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             GenericUnitOfWork work = new GenericUnitOfWork(new ServerContext(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString));
+
+            IGenericRepository<User> rep = work.Repository<User>();
+
+            MessageBox.Show(rep.GetAll().ToList().Count.ToString());
         }
     }
 }

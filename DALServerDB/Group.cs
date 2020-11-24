@@ -20,6 +20,5 @@ namespace DALServerDB
             Users = new List<User>();
             Tests = new List<Test>();
         }
-
     }
 }
