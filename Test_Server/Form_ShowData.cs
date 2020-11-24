@@ -36,6 +36,7 @@ namespace Test_Server
             if (type == TypeEntity.Groups) GetGroups();
             if (type == TypeEntity.Users) GetUsers();
             if (type == TypeEntity.Tests) GetTests();
+            if (type == TypeEntity.Results) GetResults();
         }
 
         private void GetGroups()
@@ -70,6 +71,16 @@ namespace Test_Server
 
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = users;
+        }
+
+        private void GetResults()
+        {
+            IGenericRepository<Result> rep = work.Repository<Result>();
+
+            var res = rep.GetAll().ToList();
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = res;
         }
 
         private void GetTests()

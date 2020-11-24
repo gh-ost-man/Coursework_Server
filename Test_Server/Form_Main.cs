@@ -165,5 +165,11 @@ namespace Test_Server
             ShowSubMenu(panel_Users_SubMenu);
             label_Menu.Text = "Users";
         }
+
+        private void btn_Test_ShowResultTests_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Form_ShowData(TypeEntity.Results));
+            label_Menu.Text = "Results";
+        }
     }
 }

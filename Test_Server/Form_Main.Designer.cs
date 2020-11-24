@@ -30,6 +30,7 @@
         {
             this.panel_Menu = new System.Windows.Forms.Panel();
             this.panel_Test_SubMenu = new System.Windows.Forms.Panel();
+            this.btn_Test_ShowResultTests = new System.Windows.Forms.Button();
             this.btn_Test_ShowTestsGroups = new System.Windows.Forms.Button();
             this.btn_AsignesTest = new System.Windows.Forms.Button();
             this.btn_Tests_ShowAll = new System.Windows.Forms.Button();
@@ -48,11 +49,10 @@
             this.btn_Groups_Show = new System.Windows.Forms.Button();
             this.btn_S = new System.Windows.Forms.Button();
             this.panel_Server = new System.Windows.Forms.Panel();
-            this.panel_Info = new System.Windows.Forms.Panel();
             this.label_UserName = new System.Windows.Forms.Label();
-            this.panel_Main = new System.Windows.Forms.Panel();
+            this.panel_Info = new System.Windows.Forms.Panel();
             this.label_Menu = new System.Windows.Forms.Label();
-            this.btn_Test_ShowResultTests = new System.Windows.Forms.Button();
+            this.panel_Main = new System.Windows.Forms.Panel();
             this.panel_Menu.SuspendLayout();
             this.panel_Test_SubMenu.SuspendLayout();
             this.panel_Users_SubMenu.SuspendLayout();
@@ -89,8 +89,25 @@
             this.panel_Test_SubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Test_SubMenu.Location = new System.Drawing.Point(0, 395);
             this.panel_Test_SubMenu.Name = "panel_Test_SubMenu";
-            this.panel_Test_SubMenu.Size = new System.Drawing.Size(162, 143);
+            this.panel_Test_SubMenu.Size = new System.Drawing.Size(162, 119);
             this.panel_Test_SubMenu.TabIndex = 8;
+            // 
+            // btn_Test_ShowResultTests
+            // 
+            this.btn_Test_ShowResultTests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(41)))), ((int)(((byte)(48)))));
+            this.btn_Test_ShowResultTests.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Test_ShowResultTests.FlatAppearance.BorderSize = 0;
+            this.btn_Test_ShowResultTests.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Test_ShowResultTests.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Test_ShowResultTests.Location = new System.Drawing.Point(0, 92);
+            this.btn_Test_ShowResultTests.Name = "btn_Test_ShowResultTests";
+            this.btn_Test_ShowResultTests.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btn_Test_ShowResultTests.Size = new System.Drawing.Size(162, 23);
+            this.btn_Test_ShowResultTests.TabIndex = 4;
+            this.btn_Test_ShowResultTests.Text = "Show result tests";
+            this.btn_Test_ShowResultTests.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Test_ShowResultTests.UseVisualStyleBackColor = false;
+            this.btn_Test_ShowResultTests.Click += new System.EventHandler(this.btn_Test_ShowResultTests_Click);
             // 
             // btn_Test_ShowTestsGroups
             // 
@@ -382,16 +399,6 @@
             this.panel_Server.Size = new System.Drawing.Size(162, 100);
             this.panel_Server.TabIndex = 0;
             // 
-            // panel_Info
-            // 
-            this.panel_Info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel_Info.Controls.Add(this.label_Menu);
-            this.panel_Info.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_Info.Location = new System.Drawing.Point(179, 0);
-            this.panel_Info.Name = "panel_Info";
-            this.panel_Info.Size = new System.Drawing.Size(778, 44);
-            this.panel_Info.TabIndex = 1;
-            // 
             // label_UserName
             // 
             this.label_UserName.AutoSize = true;
@@ -403,13 +410,15 @@
             this.label_UserName.TabIndex = 0;
             this.label_UserName.Text = "User name";
             // 
-            // panel_Main
+            // panel_Info
             // 
-            this.panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Main.Location = new System.Drawing.Point(179, 44);
-            this.panel_Main.Name = "panel_Main";
-            this.panel_Main.Size = new System.Drawing.Size(778, 406);
-            this.panel_Main.TabIndex = 2;
+            this.panel_Info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panel_Info.Controls.Add(this.label_Menu);
+            this.panel_Info.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_Info.Location = new System.Drawing.Point(179, 0);
+            this.panel_Info.Name = "panel_Info";
+            this.panel_Info.Size = new System.Drawing.Size(778, 44);
+            this.panel_Info.TabIndex = 1;
             // 
             // label_Menu
             // 
@@ -421,21 +430,13 @@
             this.label_Menu.Size = new System.Drawing.Size(0, 25);
             this.label_Menu.TabIndex = 1;
             // 
-            // btn_Test_ShowResultTests
+            // panel_Main
             // 
-            this.btn_Test_ShowResultTests.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(41)))), ((int)(((byte)(48)))));
-            this.btn_Test_ShowResultTests.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Test_ShowResultTests.FlatAppearance.BorderSize = 0;
-            this.btn_Test_ShowResultTests.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Test_ShowResultTests.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Test_ShowResultTests.Location = new System.Drawing.Point(0, 92);
-            this.btn_Test_ShowResultTests.Name = "btn_Test_ShowResultTests";
-            this.btn_Test_ShowResultTests.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btn_Test_ShowResultTests.Size = new System.Drawing.Size(162, 23);
-            this.btn_Test_ShowResultTests.TabIndex = 4;
-            this.btn_Test_ShowResultTests.Text = "Show result tests";
-            this.btn_Test_ShowResultTests.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Test_ShowResultTests.UseVisualStyleBackColor = false;
+            this.panel_Main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Main.Location = new System.Drawing.Point(179, 44);
+            this.panel_Main.Name = "panel_Main";
+            this.panel_Main.Size = new System.Drawing.Size(778, 406);
+            this.panel_Main.TabIndex = 2;
             // 
             // Form_Main
             // 

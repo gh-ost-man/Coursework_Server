@@ -17,5 +17,6 @@ namespace DALServerDB
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<Test> Tests { get; set; }
         public virtual DbSet<UserAnswer> UserAnswers { get; set; }
+        public virtual DbSet<Result> Results { get; set; }
     }
 }
