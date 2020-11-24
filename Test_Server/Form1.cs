@@ -29,6 +29,26 @@ namespace Test_Server
         {
             GenericUnitOfWork work = new GenericUnitOfWork(new ServerContext(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString));
 
+            IGenericRepository<User> rep = work.Repository<User>();
+            if(String.IsNullOrEmpty(textBox_Login.Text) || String.IsNullOrEmpty(textBox_Password.Text))
+            {
+                MessageBox.Show("Enter login and password","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+
+            User user = rep.FindAll(x => x.Login == textBox_Login.Text && x.Password == textBox_Password.Text).FirstOrDefault();
+
+            if (user != null && user.IsAdmin)
+            {
+                Form_Main main = new Form_Main(user);
+                this.Hide();
+                main.ShowDialog();
+            }
+
+
+
+
+
         }
     }
 }
