@@ -20,13 +20,15 @@ namespace Test_Server
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_SignIn_Click(object sender, EventArgs e)
         {
             GenericUnitOfWork work = new GenericUnitOfWork(new ServerContext(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString));
 
-            IGenericRepository<User> rep = work.Repository<User>();
-
-            MessageBox.Show(rep.GetAll().ToList().Count.ToString());
         }
     }
 }

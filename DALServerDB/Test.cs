@@ -12,10 +12,12 @@ namespace DALServerDB
         public string Title { get; set; }
 
         public virtual ICollection<Question> Questions { get; set; }
+        public virtual  ICollection<Group> Groups { get; set; }
 
         public Test()
         {
             Questions = new List<Question>();
+            Groups = new List<Group>();
         }
 
     }
