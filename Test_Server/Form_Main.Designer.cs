@@ -44,6 +44,8 @@
             this.panel_Info = new System.Windows.Forms.Panel();
             this.label_UserName = new System.Windows.Forms.Label();
             this.panel_Main = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel_Menu.SuspendLayout();
             this.panel_Users_SubMenu.SuspendLayout();
             this.panel_Groups_SubMenu.SuspendLayout();
@@ -72,7 +74,7 @@
             this.panel_Users_SubMenu.Controls.Add(this.btn_Users_Add);
             this.panel_Users_SubMenu.Controls.Add(this.btn_Users_Show);
             this.panel_Users_SubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_Users_SubMenu.Location = new System.Drawing.Point(0, 240);
+            this.panel_Users_SubMenu.Location = new System.Drawing.Point(0, 294);
             this.panel_Users_SubMenu.Name = "panel_Users_SubMenu";
             this.panel_Users_SubMenu.Size = new System.Drawing.Size(179, 77);
             this.panel_Users_SubMenu.TabIndex = 6;
@@ -92,6 +94,7 @@
             this.btn_Users_Update.Text = "Update";
             this.btn_Users_Update.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Users_Update.UseVisualStyleBackColor = false;
+            this.btn_Users_Update.Click += new System.EventHandler(this.btn_Users_Update_Click);
             // 
             // btn_Users_Add
             // 
@@ -108,6 +111,7 @@
             this.btn_Users_Add.Text = "Add";
             this.btn_Users_Add.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Users_Add.UseVisualStyleBackColor = false;
+            this.btn_Users_Add.Click += new System.EventHandler(this.btn_Users_Add_Click);
             // 
             // btn_Users_Show
             // 
@@ -124,6 +128,7 @@
             this.btn_Users_Show.Text = "Show";
             this.btn_Users_Show.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Users_Show.UseVisualStyleBackColor = false;
+            this.btn_Users_Show.Click += new System.EventHandler(this.btn_Users_Show_Click);
             // 
             // button5
             // 
@@ -132,7 +137,7 @@
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button5.Location = new System.Drawing.Point(0, 207);
+            this.button5.Location = new System.Drawing.Point(0, 261);
             this.button5.Name = "button5";
             this.button5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.button5.Size = new System.Drawing.Size(179, 33);
@@ -140,17 +145,20 @@
             this.button5.Text = "Users";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // panel_Groups_SubMenu
             // 
             this.panel_Groups_SubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(41)))), ((int)(((byte)(48)))));
+            this.panel_Groups_SubMenu.Controls.Add(this.button2);
+            this.panel_Groups_SubMenu.Controls.Add(this.button1);
             this.panel_Groups_SubMenu.Controls.Add(this.btn_Groups_Update);
             this.panel_Groups_SubMenu.Controls.Add(this.btn_Groups_Add);
             this.panel_Groups_SubMenu.Controls.Add(this.btn_Groups_Show);
             this.panel_Groups_SubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Groups_SubMenu.Location = new System.Drawing.Point(0, 133);
             this.panel_Groups_SubMenu.Name = "panel_Groups_SubMenu";
-            this.panel_Groups_SubMenu.Size = new System.Drawing.Size(179, 74);
+            this.panel_Groups_SubMenu.Size = new System.Drawing.Size(179, 128);
             this.panel_Groups_SubMenu.TabIndex = 4;
             // 
             // btn_Groups_Update
@@ -271,6 +279,38 @@
             this.panel_Main.Size = new System.Drawing.Size(778, 406);
             this.panel_Main.TabIndex = 2;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(41)))), ((int)(((byte)(48)))));
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(0, 69);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(179, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Add user";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(41)))), ((int)(((byte)(48)))));
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Location = new System.Drawing.Point(0, 92);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(179, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Show Users";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,5 +354,7 @@
         private System.Windows.Forms.Panel panel_Server;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel_Main;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

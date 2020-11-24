@@ -97,5 +97,25 @@ namespace Test_Server
             openChildForm(new Form_Add_Update_Group(TypeOfCRUT.Update));
 
         }
+
+        private void btn_Users_Show_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Form_ShowData(TypeEntity.Users));
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(panel_Users_SubMenu);
+        }
+
+        private void btn_Users_Add_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Form_Add_Update_User(TypeOfCRUT.Add));
+        }
+
+        private void btn_Users_Update_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Form_Add_Update_User(TypeOfCRUT.Update));
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace Test_Server
         private void ShowData(TypeEntity type)
         {
             if (type == TypeEntity.Groups) GetGroups();
-            if (type == TypeEntity.Users) { }
+            if (type == TypeEntity.Users) GetUsers();
         }
 
         private void GetGroups()
@@ -55,14 +55,20 @@ namespace Test_Server
         }
         private void GetUsers()
         {
-            GenericUnitOfWork work = new GenericUnitOfWork(new ServerContext(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString));
-
             IGenericRepository<User> repUsers = work.Repository<User>();
 
-            var users = repUsers.GetAll().ToList();
+            var users = repUsers.GetAll().Select(x => new
+            {
+                Id = x.Id,
+                FirstName = x.FirstName,
+                LastName = x.LastName,
+                Login = x.Login,
+                Password = x.Password,
+                IsAdmin = x.IsAdmin
+            }).ToList();
 
             dataGridView1.DataSource = null;
-            dataGridView1.DataSource = repUsers;
+            dataGridView1.DataSource = users;
         }
 
         private void btn_Remove_Click(object sender, EventArgs e)
@@ -84,6 +90,22 @@ namespace Test_Server
 
                     GetGroups();
 
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
+
+            if (typeEntity == TypeEntity.Users)
+            {
+                try
+                {
+                    IGenericRepository<User> repUsers = work.Repository<User>();
+                    id = (int)dataGridView1.CurrentRow.Cells["Id"].Value;
+
+                    var res = repUsers.FindById(id);
+
+                    repUsers.Remove(res);
+
+                    GetUsers();
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }

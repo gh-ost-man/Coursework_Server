@@ -45,7 +45,7 @@ namespace Test_Server
             {
                 var res = rep.FindAll(x => x.NameGroup == group.NameGroup).ToList();
 
-                if (res.Count() > 1) return true;
+                if (res.Count() >= 1) return true;
             }
 
             return false;
@@ -112,15 +112,23 @@ namespace Test_Server
 
             if (crut == TypeOfCRUT.Update)
             {
-                Group group = rep.FindById(id);
-                group.NameGroup = textBox_Name.Text;
+                try
+                {
+                    Group group = rep.FindById(id);
+                    if (group.NameGroup == textBox_Name.Text) return;
 
-                if (Check_Group(group, crut)) throw new Exception($"< {group.NameGroup} > is exists");
-                rep.Update(group);
+                    group.NameGroup = textBox_Name.Text;
 
-                GetGroups();
 
-                btn_Cancel_Click(sender, e);
+                    if (Check_Group(group, crut)) throw new Exception($"< {group.NameGroup} > is exists");
+                    rep.Update(group);
+
+                    GetGroups();
+
+                    btn_Cancel_Click(sender, e);
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
 
             }
         }

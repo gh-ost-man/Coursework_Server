@@ -43,6 +43,7 @@ namespace Test_Server
                 Form_Main main = new Form_Main(user);
                 this.Hide();
                 main.ShowDialog();
+                this.Dispose();
             }
 
 
