@@ -53,6 +53,7 @@
             this.panel_Info = new System.Windows.Forms.Panel();
             this.label_Menu = new System.Windows.Forms.Label();
             this.panel_Main = new System.Windows.Forms.Panel();
+            this.btn_Server = new System.Windows.Forms.Button();
             this.panel_Menu.SuspendLayout();
             this.panel_Test_SubMenu.SuspendLayout();
             this.panel_Users_SubMenu.SuspendLayout();
@@ -65,6 +66,7 @@
             // 
             this.panel_Menu.AutoScroll = true;
             this.panel_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(6)))), ((int)(((byte)(11)))));
+            this.panel_Menu.Controls.Add(this.btn_Server);
             this.panel_Menu.Controls.Add(this.panel_Test_SubMenu);
             this.panel_Menu.Controls.Add(this.btn_Tests);
             this.panel_Menu.Controls.Add(this.panel_Users_SubMenu);
@@ -402,11 +404,11 @@
             // label_UserName
             // 
             this.label_UserName.AutoSize = true;
-            this.label_UserName.Font = new System.Drawing.Font("Monospac821 BT", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_UserName.ForeColor = System.Drawing.Color.Aqua;
             this.label_UserName.Location = new System.Drawing.Point(12, 33);
             this.label_UserName.Name = "label_UserName";
-            this.label_UserName.Size = new System.Drawing.Size(129, 25);
+            this.label_UserName.Size = new System.Drawing.Size(116, 25);
             this.label_UserName.TabIndex = 0;
             this.label_UserName.Text = "User name";
             // 
@@ -437,6 +439,23 @@
             this.panel_Main.Name = "panel_Main";
             this.panel_Main.Size = new System.Drawing.Size(778, 406);
             this.panel_Main.TabIndex = 2;
+            // 
+            // btn_Server
+            // 
+            this.btn_Server.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(6)))), ((int)(((byte)(11)))));
+            this.btn_Server.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Server.FlatAppearance.BorderSize = 0;
+            this.btn_Server.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Server.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Server.Location = new System.Drawing.Point(0, 514);
+            this.btn_Server.Name = "btn_Server";
+            this.btn_Server.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_Server.Size = new System.Drawing.Size(162, 33);
+            this.btn_Server.TabIndex = 9;
+            this.btn_Server.Text = "Server";
+            this.btn_Server.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Server.UseVisualStyleBackColor = false;
+            this.btn_Server.Click += new System.EventHandler(this.btn_Server_Click);
             // 
             // Form_Main
             // 
@@ -491,5 +510,6 @@
         private System.Windows.Forms.Button btn_Test_ShowTestsGroups;
         private System.Windows.Forms.Label label_Menu;
         private System.Windows.Forms.Button btn_Test_ShowResultTests;
+        private System.Windows.Forms.Button btn_Server;
     }
 }

@@ -171,5 +171,10 @@ namespace Test_Server
             openChildForm(new Form_ShowData(TypeEntity.Results));
             label_Menu.Text = "Results";
         }
+
+        private void btn_Server_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
