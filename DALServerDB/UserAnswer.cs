@@ -13,5 +13,7 @@ namespace DALServerDB
         public User User { get; set; }
 
         public Answer Answer { get; set; }
+
+        public DateTime Date { get; set; }
     }
 }

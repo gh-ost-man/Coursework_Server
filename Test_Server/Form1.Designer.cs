@@ -54,7 +54,8 @@
             // 
             // btn_SignIn
             // 
-            this.btn_SignIn.ForeColor = System.Drawing.Color.Black;
+            this.btn_SignIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_SignIn.ForeColor = System.Drawing.Color.White;
             this.btn_SignIn.Location = new System.Drawing.Point(75, 95);
             this.btn_SignIn.Name = "btn_SignIn";
             this.btn_SignIn.Size = new System.Drawing.Size(75, 23);
@@ -71,7 +72,6 @@
             this.textBox_Password.PasswordChar = '*';
             this.textBox_Password.Size = new System.Drawing.Size(170, 23);
             this.textBox_Password.TabIndex = 3;
-            this.textBox_Password.Text = "11111";
             // 
             // textBox_Login
             // 
@@ -79,7 +79,6 @@
             this.textBox_Login.Name = "textBox_Login";
             this.textBox_Login.Size = new System.Drawing.Size(170, 20);
             this.textBox_Login.TabIndex = 2;
-            this.textBox_Login.Text = "admin";
             // 
             // label2
             // 
@@ -108,7 +107,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Server";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

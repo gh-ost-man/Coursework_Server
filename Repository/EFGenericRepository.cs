@@ -20,7 +20,7 @@ namespace Repository
 
             _dbSet = context.Set<TEntity>();
         }
-
+      
         public IEnumerable<TEntity> GetAll()
         {
             return _dbSet.ToList();

@@ -18,7 +18,7 @@ namespace Repository
             this.context = context;
         }
 
-
+        public DbContext GetContext() { return context; }
         public void SaveChanges()
         {
             context.SaveChanges();

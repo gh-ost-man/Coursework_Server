@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,9 @@ namespace Test_Server
     {
         TypeEntity typeEntity = TypeEntity.Default;
         GenericUnitOfWork work = new GenericUnitOfWork(new ServerContext(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString));
+
         int id = -1;
+
         public Form_ShowData()
         {
             InitializeComponent();
@@ -143,13 +146,19 @@ namespace Test_Server
                 try
                 {
                     IGenericRepository<Test> repTest = work.Repository<Test>();
+                    IGenericRepository<Question> repQ = work.Repository<Question>();
+                    IGenericRepository<Answer> repA = work.Repository<Answer>();
                     id = (int)dataGridView1.CurrentRow.Cells["Id"].Value;
 
                     var test = repTest.FindById(id);
+
                     test.Questions.Clear();
+
                     work.SaveChanges();
 
                     repTest.Remove(test);
+
+                    int res = work.GetContext().Database.ExecuteSqlCommand("exec sp_Clear");
 
                     GetTests();
                 }

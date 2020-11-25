@@ -402,11 +402,11 @@
             // label_UserName
             // 
             this.label_UserName.AutoSize = true;
-            this.label_UserName.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_UserName.Font = new System.Drawing.Font("Monospac821 BT", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_UserName.ForeColor = System.Drawing.Color.Aqua;
-            this.label_UserName.Location = new System.Drawing.Point(30, 28);
+            this.label_UserName.Location = new System.Drawing.Point(12, 33);
             this.label_UserName.Name = "label_UserName";
-            this.label_UserName.Size = new System.Drawing.Size(92, 25);
+            this.label_UserName.Size = new System.Drawing.Size(129, 25);
             this.label_UserName.TabIndex = 0;
             this.label_UserName.Text = "User name";
             // 
@@ -423,7 +423,7 @@
             // label_Menu
             // 
             this.label_Menu.AutoSize = true;
-            this.label_Menu.Font = new System.Drawing.Font("Monotype Corsiva", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_Menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label_Menu.ForeColor = System.Drawing.Color.Aqua;
             this.label_Menu.Location = new System.Drawing.Point(6, 9);
             this.label_Menu.Name = "label_Menu";

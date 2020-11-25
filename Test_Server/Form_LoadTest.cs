@@ -69,8 +69,13 @@ namespace Test_Server
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            if (test == null ||numericUpDown_Minute.Value==0&&numericUpDown_Hour.Value==0) return;
+            if (test == null ) return;
 
+            if(numericUpDown_Minute.Value == 0 && numericUpDown_Hour.Value == 0)
+            {
+                MessageBox.Show("Enter time for test");
+                return;
+            }
             IGenericRepository<DALServerDB.Test> rep = work.Repository<DALServerDB.Test>();
 
             if(rep.FindAll(x=>x.Title==test.TestName).FirstOrDefault()!=null)

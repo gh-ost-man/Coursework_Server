@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,5 +19,6 @@ namespace DALServerDB
         public virtual DbSet<Test> Tests { get; set; }
         public virtual DbSet<UserAnswer> UserAnswers { get; set; }
         public virtual DbSet<Result> Results { get; set; }
+
     }
 }
