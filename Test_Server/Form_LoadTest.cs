@@ -32,6 +32,43 @@ namespace Test_Server
 
         }
 
+        private void SaveTestToServer(TestLib.Test _test)
+        {
+            IGenericRepository<DALServerDB.Test> rep = work.Repository<DALServerDB.Test>();
+
+            DALServerDB.Test t = new DALServerDB.Test();
+            t.Author = _test.Author;
+            t.Title = _test.TestName;
+            t.Time = new TimeSpan((int)numericUpDown_Hour.Value, (int)numericUpDown_Minute.Value, 0);
+
+            List<DALServerDB.Question> questions = new List<DALServerDB.Question>();
+
+            foreach (var item in _test.Question)
+            {
+                DALServerDB.Question question = new DALServerDB.Question();
+                question.Title = item.Description;
+                question.Difficulty = item.Difficulty;
+
+                List<DALServerDB.Answer> answers = new List<DALServerDB.Answer>();
+                foreach (var it in item.Answer)
+                {
+                    DALServerDB.Answer answer = new DALServerDB.Answer();
+                    answer.Description = it.Description;
+                    answer.IsRight = Convert.ToBoolean(it.IsRight);
+                    answers.Add(answer);
+                }
+                question.Answers = answers;
+                questions.Add(question);
+            }
+
+            t.Questions = questions;
+
+            rep.Add(t);
+
+            MessageBox.Show("Test added");
+
+
+        }
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             textBox_Author.Text = string.Empty;
@@ -90,42 +127,6 @@ namespace Test_Server
 
         }
 
-        private void SaveTestToServer(TestLib.Test _test)
-        {
-            IGenericRepository<DALServerDB.Test> rep = work.Repository<DALServerDB.Test>();
-
-            DALServerDB.Test t = new DALServerDB.Test();
-            t.Author = _test.Author;
-            t.Title = _test.TestName;
-            t.Time = new TimeSpan((int)numericUpDown_Hour.Value, (int)numericUpDown_Minute.Value, 0);
-
-            List<DALServerDB.Question> questions = new List<DALServerDB.Question>();
-
-            foreach (var item in _test.Question)
-            {
-                DALServerDB.Question question = new DALServerDB.Question();
-                question.Title = item.Description;
-                question.Difficulty = item.Difficulty;
-
-                List<DALServerDB.Answer> answers = new List<DALServerDB.Answer>();
-                foreach (var it in item.Answer)
-                {
-                    DALServerDB.Answer answer = new DALServerDB.Answer();
-                    answer.Description = it.Description;
-                    answer.IsRight = Convert.ToBoolean(it.IsRight);
-                    answers.Add(answer);
-                }
-                question.Answers = answers;
-                questions.Add(question);
-            }
-
-            t.Questions = questions;
-
-            rep.Add(t);
-
-            MessageBox.Show("Test added");
-
-           
-        }
+       
     }
 }

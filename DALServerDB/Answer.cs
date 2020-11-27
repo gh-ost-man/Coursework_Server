@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DALServerDB
 {
+    [Serializable]
     public class Answer
     {
         public int Id { get; set; }

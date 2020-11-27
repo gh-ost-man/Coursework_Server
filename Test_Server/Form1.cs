@@ -36,7 +36,7 @@ namespace Test_Server
                 return;
             }
 
-            User user = rep.FindAll(x => x.Login == textBox_Login.Text && x.Password == textBox_Password.Text).FirstOrDefault();
+           DALServerDB.User user = rep.FindAll(x => x.Login == textBox_Login.Text && x.Password == textBox_Password.Text).FirstOrDefault();
 
             if(user==null)
             {

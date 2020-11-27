@@ -1,21 +1,34 @@
 ﻿using DALServerDB;
+using Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Test_Server
 {
+    //33101 - load tests
+
     public partial class Form_Main : Form
     {
         User admin;
+
         Form activeForm = null;
+        GenericUnitOfWork work = new GenericUnitOfWork(new ServerContext(ConfigurationManager.ConnectionStrings["conStr"].ConnectionString));
+
+        int portSend = 5555;
+        int portRecive = 5556;
 
         public Form_Main()
         {
@@ -27,7 +40,97 @@ namespace Test_Server
             admin = user;
             customizeDesign();
 
+            IGenericRepository<User> rep = work.Repository<User>();
+
+            TcpClient clientTcp = null;
+            NetworkStream streamSend;
+
             label_UserName.Text = $"{admin.FirstName} {admin.LastName}";
+
+            IPAddress localAddr = IPAddress.Parse("127.0.0.1");
+            TcpListener server = new TcpListener(localAddr, portRecive);
+            server.Start();
+
+            //Users
+            Task.Run(() =>
+            {
+                while (true)
+                {
+                    TcpClient client = server.AcceptTcpClient();
+                    NetworkStream stream = client.GetStream();
+
+                    byte[] buff = new byte[1024];
+                    MemoryStream ms = new MemoryStream();
+
+                    do
+                    {
+                        int bytes = stream.Read(buff, 0, buff.Length);
+
+                        ms.Append(buff);
+                    }
+                    while (stream.DataAvailable);
+
+                    BinaryFormatter bf = new BinaryFormatter();
+
+                    ms.Position = 0;
+                    TreeGedaLib.User user1 = (TreeGedaLib.User)bf.Deserialize(ms);
+                    ms.Close();
+
+                    var ures = rep.FindAll(x => x.Login == user1.Login && x.Password == user1.Password).FirstOrDefault();
+
+                    if (ures != null)
+                    {
+                        user1.Id = ures.Id;
+                        user1.FirstName = ures.FirstName;
+                        user1.LastName = ures.LastName;
+                        user1.Login = ures.Login;
+                        user1.Password = ures.Password;
+                        user1.IsAdmin = ures.IsAdmin;
+
+
+                        byte[] data;
+
+                        using (ms = new MemoryStream())
+                        {
+                            var binForm = new BinaryFormatter();
+                            binForm.Serialize(ms, user1);
+
+                            data = ms.ToArray();
+                        }
+                        clientTcp = new TcpClient();
+                        clientTcp.Connect("localhost", portSend);
+                        streamSend = clientTcp.GetStream();
+
+                        streamSend.Write(data, 0, data.Length);
+                        ms.Close();
+                    }
+                    else
+                    {
+
+                        user1.Id = -1;
+                        byte[] data;
+
+                        using (ms = new MemoryStream())
+                        {
+                            var binForm = new BinaryFormatter();
+                            binForm.Serialize(ms, user1);
+
+                            data = ms.ToArray();
+                        }
+                        clientTcp = new TcpClient();
+                        clientTcp.Connect("localhost", portSend);
+                        streamSend = clientTcp.GetStream();
+
+                        streamSend.Write(data, 0, data.Length);
+                        ms.Close();
+                    }
+                }
+            });
+
+
+            //Tests
+
+
         }
 
         private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -170,11 +273,6 @@ namespace Test_Server
         {
             openChildForm(new Form_ShowData(TypeEntity.Results));
             label_Menu.Text = "Results";
-        }
-
-        private void btn_Server_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -75,6 +75,9 @@
     <Reference Include="TestLib">
       <HintPath>..\..\..\S.H.I.E.L.D\S.H.I.E.L.D\IT STEP\Програмування\Курсова робота по DotNet\Design\TestLib\bin\Debug\TestLib.dll</HintPath>
     </Reference>
+    <Reference Include="TreeGedaLib">
+      <HintPath>..\..\TreeGedaLib\TreeGedaLib\bin\Debug\TreeGedaLib.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +135,8 @@
     <Compile Include="Form_ShowData.Designer.cs">
       <DependentUpon>Form_ShowData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Info.cs" />
+    <Compile Include="MemoryStreamExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TypeEntity.cs" />

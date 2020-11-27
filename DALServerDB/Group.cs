@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DALServerDB
 {
+    [Serializable]
    public class Group
     {
         public int Id { get; set; }

@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Answer.cs" />
-    <Compile Include="AssignesTest.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="UserAnswer.cs" />
     <Compile Include="Group.cs" />

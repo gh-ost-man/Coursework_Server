@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel_Menu = new System.Windows.Forms.Panel();
+            this.btn_Server = new System.Windows.Forms.Button();
             this.panel_Test_SubMenu = new System.Windows.Forms.Panel();
             this.btn_Test_ShowResultTests = new System.Windows.Forms.Button();
             this.btn_Test_ShowTestsGroups = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@
             this.panel_Info = new System.Windows.Forms.Panel();
             this.label_Menu = new System.Windows.Forms.Label();
             this.panel_Main = new System.Windows.Forms.Panel();
-            this.btn_Server = new System.Windows.Forms.Button();
             this.panel_Menu.SuspendLayout();
             this.panel_Test_SubMenu.SuspendLayout();
             this.panel_Users_SubMenu.SuspendLayout();
@@ -79,6 +79,22 @@
             this.panel_Menu.Name = "panel_Menu";
             this.panel_Menu.Size = new System.Drawing.Size(179, 450);
             this.panel_Menu.TabIndex = 0;
+            // 
+            // btn_Server
+            // 
+            this.btn_Server.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(6)))), ((int)(((byte)(11)))));
+            this.btn_Server.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Server.FlatAppearance.BorderSize = 0;
+            this.btn_Server.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Server.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Server.Location = new System.Drawing.Point(0, 514);
+            this.btn_Server.Name = "btn_Server";
+            this.btn_Server.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_Server.Size = new System.Drawing.Size(162, 33);
+            this.btn_Server.TabIndex = 9;
+            this.btn_Server.Text = "Server";
+            this.btn_Server.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Server.UseVisualStyleBackColor = false;
             // 
             // panel_Test_SubMenu
             // 
@@ -439,23 +455,6 @@
             this.panel_Main.Name = "panel_Main";
             this.panel_Main.Size = new System.Drawing.Size(778, 406);
             this.panel_Main.TabIndex = 2;
-            // 
-            // btn_Server
-            // 
-            this.btn_Server.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(6)))), ((int)(((byte)(11)))));
-            this.btn_Server.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Server.FlatAppearance.BorderSize = 0;
-            this.btn_Server.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Server.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Server.Location = new System.Drawing.Point(0, 514);
-            this.btn_Server.Name = "btn_Server";
-            this.btn_Server.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_Server.Size = new System.Drawing.Size(162, 33);
-            this.btn_Server.TabIndex = 9;
-            this.btn_Server.Text = "Server";
-            this.btn_Server.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Server.UseVisualStyleBackColor = false;
-            this.btn_Server.Click += new System.EventHandler(this.btn_Server_Click);
             // 
             // Form_Main
             // 

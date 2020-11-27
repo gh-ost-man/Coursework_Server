@@ -72,6 +72,7 @@
             this.textBox_Password.PasswordChar = '*';
             this.textBox_Password.Size = new System.Drawing.Size(170, 23);
             this.textBox_Password.TabIndex = 3;
+            this.textBox_Password.Text = "11111";
             // 
             // textBox_Login
             // 
@@ -79,6 +80,7 @@
             this.textBox_Login.Name = "textBox_Login";
             this.textBox_Login.Size = new System.Drawing.Size(170, 20);
             this.textBox_Login.TabIndex = 2;
+            this.textBox_Login.Text = "admin";
             // 
             // label2
             // 
@@ -103,7 +105,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(14)))), ((int)(((byte)(21)))));
-            this.ClientSize = new System.Drawing.Size(287, 187);
+            this.ClientSize = new System.Drawing.Size(284, 186);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
