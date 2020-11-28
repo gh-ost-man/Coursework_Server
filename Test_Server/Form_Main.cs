@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -30,6 +31,14 @@ namespace Test_Server
         int portSend = 5555;
         int portRecive = 5556;
 
+
+        int portSendTest = 5558;
+        int portReciveTest = 5557;
+
+        int portSendRes = 5560;
+        int portReciveRes = 5559;
+
+
         public Form_Main()
         {
             InitializeComponent();
@@ -41,6 +50,12 @@ namespace Test_Server
             customizeDesign();
 
             IGenericRepository<User> rep = work.Repository<User>();
+            IGenericRepository<Test> repTest = work.Repository<Test>();
+            
+            IGenericRepository<Answer> repAnswer = work.Repository<Answer>();
+            IGenericRepository<UserAnswer> repUserAnswer = work.Repository<UserAnswer>();
+
+
 
             TcpClient clientTcp = null;
             NetworkStream streamSend;
@@ -50,6 +65,14 @@ namespace Test_Server
             IPAddress localAddr = IPAddress.Parse("127.0.0.1");
             TcpListener server = new TcpListener(localAddr, portRecive);
             server.Start();
+
+            TcpListener server2 = new TcpListener(localAddr, portReciveTest);
+            server2.Start();
+
+            TcpListener server3 = new TcpListener(localAddr, portReciveRes);
+            server3.Start();
+
+
 
             //Users
             Task.Run(() =>
@@ -129,7 +152,135 @@ namespace Test_Server
 
 
             //Tests
+            Task.Run(() =>
+            {
+                while (true)
+                {
+                    TcpClient client = server2.AcceptTcpClient();
+                    NetworkStream stream = client.GetStream();
 
+                    byte[] buff = new byte[1024];
+                    MemoryStream ms = new MemoryStream();
+
+                    do
+                    {
+                        int bytes = stream.Read(buff, 0, buff.Length);
+
+                        ms.Append(buff);
+                    }
+                    while (stream.DataAvailable);
+
+                    BinaryFormatter bf = new BinaryFormatter();
+
+                    ms.Position = 0;
+                    TreeGedaLib.User user1 = (TreeGedaLib.User)bf.Deserialize(ms);
+                    ms.Close();
+
+
+                    if (user1 != null)
+                    {
+                        var groups = rep.FindById(user1.Id).Groups.ToList();
+
+                        var tests = groups.Select(x => x.Tests.ToList()).FirstOrDefault();
+
+                        if (tests.Count() > 0)
+                        {
+                            List<TreeGedaLib.Test> testsSend = new List<TreeGedaLib.Test>();
+
+                            foreach (var test in tests)
+                            {
+                                TreeGedaLib.Test t = new TreeGedaLib.Test();
+                                t.Id = test.Id;
+                                t.Author = test.Author;
+                                t.Time = test.Time;
+                                t.Title = test.Title;
+
+                                foreach (var question in test.Questions)
+                                {
+                                    TreeGedaLib.Question q = new TreeGedaLib.Question();
+                                    q.Id = question.Id;
+                                    q.Title = question.Title;
+                                    q.Difficulty = question.Difficulty;
+
+                                    foreach (var answer in question.Answers)
+                                    {
+                                        TreeGedaLib.Answer a = new TreeGedaLib.Answer();
+                                        a.Id = answer.Id;
+                                        a.Description = answer.Description;
+                                        a.IsRight = answer.IsRight;
+                                        q.Answers.Add(a);
+                                    }
+                                    t.Questions.Add(q);
+                                }
+                                testsSend.Add(t);
+                            }
+
+                            byte[] data;
+
+                            using (ms = new MemoryStream())
+                            {
+                                var binForm = new BinaryFormatter();
+                                binForm.Serialize(ms, testsSend);
+
+                                data = ms.ToArray();
+                            }
+
+                            clientTcp = new TcpClient();
+                            clientTcp.Connect("localhost", portSendTest);
+                            streamSend = clientTcp.GetStream();
+
+                            streamSend.Write(data, 0, data.Length);
+                            ms.Close();
+                            user1 = null;
+                        }
+                    }
+                }
+            });
+
+            //Result
+
+            Task.Run(() =>
+            {
+                while (true)
+                {
+                    TcpClient client = server3.AcceptTcpClient();
+                    NetworkStream stream = client.GetStream();
+
+                    byte[] buff = new byte[1024];
+                    MemoryStream ms = new MemoryStream();
+
+                    do
+                    {
+                        int bytes = stream.Read(buff, 0, buff.Length);
+
+                        ms.Append(buff);
+                    }
+                    while (stream.DataAvailable);
+
+                    BinaryFormatter bf = new BinaryFormatter();
+
+                    ms.Position = 0;
+                    List<TreeGedaLib.UserAnswer> userAnswer = (List<TreeGedaLib.UserAnswer>)bf.Deserialize(ms);
+                    ms.Close();
+
+                    if (userAnswer.Count != 0)
+                    {
+                        foreach (var item in userAnswer)
+                        {
+                            UserAnswer ua = new UserAnswer();
+
+                            Answer answer = repAnswer.FindById(item.Answer.Id);
+                            User us = rep.FindById(item.User.Id);
+
+                            ua.Date = item.Date;
+                            ua.Answer = answer;
+                            ua.User = us;
+
+                            repUserAnswer.Add(ua);
+                        }
+                    }
+                }
+            });
 
         }
 
@@ -273,6 +424,13 @@ namespace Test_Server
         {
             openChildForm(new Form_ShowData(TypeEntity.Results));
             label_Menu.Text = "Results";
+        }
+
+        private void btn_Server_Click(object sender, EventArgs e)
+        {
+
+
+
         }
     }
 }

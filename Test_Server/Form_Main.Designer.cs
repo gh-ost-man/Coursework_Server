@@ -95,6 +95,7 @@
             this.btn_Server.Text = "Server";
             this.btn_Server.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Server.UseVisualStyleBackColor = false;
+            this.btn_Server.Click += new System.EventHandler(this.btn_Server_Click);
             // 
             // panel_Test_SubMenu
             // 
@@ -419,12 +420,14 @@
             // 
             // label_UserName
             // 
+            this.label_UserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label_UserName.AutoSize = true;
-            this.label_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Italic);
             this.label_UserName.ForeColor = System.Drawing.Color.Aqua;
-            this.label_UserName.Location = new System.Drawing.Point(12, 33);
+            this.label_UserName.Location = new System.Drawing.Point(3, 33);
             this.label_UserName.Name = "label_UserName";
-            this.label_UserName.Size = new System.Drawing.Size(116, 25);
+            this.label_UserName.Size = new System.Drawing.Size(91, 20);
             this.label_UserName.TabIndex = 0;
             this.label_UserName.Text = "User name";
             // 
