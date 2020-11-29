@@ -17,6 +17,8 @@ namespace DALServerDB
 
         public int QtyOfRightAnswers { get; set; }
 
-        public float Mark { get; set; }
+        public int Mark { get; set; }
+
+        public DateTime Date { get; set; }
     }
 }

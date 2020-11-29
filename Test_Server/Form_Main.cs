@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
@@ -51,11 +52,10 @@ namespace Test_Server
 
             IGenericRepository<User> rep = work.Repository<User>();
             IGenericRepository<Test> repTest = work.Repository<Test>();
-            
+
             IGenericRepository<Answer> repAnswer = work.Repository<Answer>();
             IGenericRepository<UserAnswer> repUserAnswer = work.Repository<UserAnswer>();
-
-
+            IGenericRepository<Result> repResult= work.Repository<Result>();
 
             TcpClient clientTcp = null;
             NetworkStream streamSend;
@@ -71,8 +71,6 @@ namespace Test_Server
 
             TcpListener server3 = new TcpListener(localAddr, portReciveRes);
             server3.Start();
-
-
 
             //Users
             Task.Run(() =>
@@ -278,10 +276,90 @@ namespace Test_Server
 
                             repUserAnswer.Add(ua);
                         }
+
+
+                        DateTime dtStart = new DateTime(
+                            userAnswer[0].DT_Start.Year,
+                            userAnswer[0].DT_Start.Month,
+                            userAnswer[0].DT_Start.Day,
+                            userAnswer[0].DT_Start.Hour,
+                            userAnswer[0].DT_Start.Minute,
+                            userAnswer[0].DT_Start.Second,
+                            userAnswer[0].DT_Start.Millisecond,
+                            DateTimeKind.Local);
+
+                        DateTime dtEnd= new DateTime(
+                        userAnswer[userAnswer.Count-1].DT_End.Year,
+                        userAnswer[userAnswer.Count - 1].DT_End.Month,
+                        userAnswer[userAnswer.Count - 1].DT_End.Day,
+                        userAnswer[userAnswer.Count - 1].DT_End.Hour,
+                        userAnswer[userAnswer.Count - 1].DT_End.Minute,
+                        userAnswer[userAnswer.Count - 1].DT_End.Second,
+                        userAnswer[userAnswer.Count - 1].DT_End.Millisecond,
+                        DateTimeKind.Local);
+
+
+                        SqlParameter[] @mark =
+                          {
+                             new SqlParameter("@res", SqlDbType.Int) {Direction = ParameterDirection.Output},
+                             new SqlParameter("@idUser", SqlDbType.Int) {Direction = ParameterDirection.Input,Value=userAnswer[0].User.Id},
+                              new SqlParameter("@dateST", SqlDbType.DateTime) {Direction = ParameterDirection.Input,Value=dtStart},
+                              new SqlParameter("@dateEnd", SqlDbType.DateTime) {Direction = ParameterDirection.Input,Value=dtEnd}
+                          };
+
+                        work.GetContext().Database.ExecuteSqlCommand("exec @res=" + "sp_Test @idUser,@dateST,@dateEnd", @mark);
+
+                        var result = @mark[0].Value;
+
+                        SqlParameter[] @qty =
+                         {
+                            new SqlParameter("@res", SqlDbType.Int) {Direction = ParameterDirection.Output},
+                            new SqlParameter("@id", SqlDbType.Int) {Direction = ParameterDirection.Input,Value=userAnswer[0].User.Id},
+                            new SqlParameter("@DateST", SqlDbType.DateTime) {Direction = ParameterDirection.Input,Value=dtStart},
+                            new SqlParameter("@DateEnd", SqlDbType.DateTime) {Direction = ParameterDirection.Input,Value=dtEnd}
+                          };
+
+                        work.GetContext().Database.ExecuteSqlCommand("exec @res=" + "sp_GetQtyRightAnswers @id,@DateST,@DateEnd", @qty);
+
+                        var qtyAnswers = @qty[0].Value;
+
+                        Result r = new Result();
+                        var test= repTest.FindById(userAnswer[0].IdTest); ;
+                        r.Test = test;
+                        r.Mark = (int)result;
+                        r.QtyOfRightAnswers = (int)qtyAnswers;
+                        r.User = rep.FindById(userAnswer[0].User.Id);
+                        r.Date = DateTime.Now;
+                        repResult.Add(r);
+
+                        /////////////////////////////////////////////////////////////////////////////
+                        byte[] data;
+
+                        TreeGedaLib.Result result1 = new TreeGedaLib.Result();
+                        result1.TestNme = test.Title;
+                        result1.Mark = (int)result;
+                        result1.QtyRightAnswers = (int)qtyAnswers;
+
+                        using (ms = new MemoryStream())
+                        {
+                            var binForm = new BinaryFormatter();
+                            binForm.Serialize(ms, result1);
+
+                            data = ms.ToArray();
+                        }
+
+                        TcpClient tc = new TcpClient();
+                        NetworkStream ns;
+                        tc = new TcpClient();
+                        tc.Connect("localhost", portSendRes);
+                        ns = tc.GetStream();
+
+                        ns.Write(data, 0, data.Length);
+                        ms.Close();
+
                     }
                 }
             });
-
         }
 
         private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
@@ -428,7 +506,17 @@ namespace Test_Server
 
         private void btn_Server_Click(object sender, EventArgs e)
         {
+            //SqlParameter[] @qty =
+            //           {
+            //                new SqlParameter("@res", SqlDbType.Int) {Direction = ParameterDirection.Output},
+            //                new SqlParameter("@id", SqlDbType.Int) {Direction = ParameterDirection.Input,Value=3},
+            //                new SqlParameter("@DateST", SqlDbType.DateTime) {Direction = ParameterDirection.Input,Value=dtStart},
+            //                new SqlParameter("@DateEnd", SqlDbType.DateTime) {Direction = ParameterDirection.Input,Value=dtEnd}
+            //              };
 
+            //work.GetContext().Database.ExecuteSqlCommand("exec @res=" + "sp_GetQtyRightAnswers @id,@dateST,@dateEnd", @qty);
+
+            //var res = @qty[0].Value;
 
 
         }
